@@ -1,0 +1,71 @@
+@charset "utf-8";
+/* CSS Document */
+*
+{
+	margin:0px;
+	padding:0px;
+}
+input:focus
+{
+	border:none;
+	box-shadow:none;
+	outline:none;
+}
+.obavijest_li
+{
+	background:#000;
+	opacity:0.8;
+	width:100%;
+	height:auto;
+	color:#FFF;
+	padding:5px;
+}
+.obavijest_ul
+{
+	margin-left:10%;
+	width:80%;
+}
+.obavijest_dugme
+{
+	background:none;
+	color:#999;
+	font-family:"Nedo font";
+	font-size:16px;
+}
+.obavijest_dugme:hover
+{
+	color:#09F;
+	cursor:url(../slike/cursor.png), auto;
+}
+.obavijest_polje
+{
+	height:40px;
+	width:584px;
+	color:#FFF;
+	background:url(../slike/napravi_polje.png) no-repeat;
+	font-family:"Nedo font",Arial, Helvetica, sans-serif;
+	text-align:center;
+	font-size:18px;
+	border:none;
+}
+table
+{
+	empty-cells:hide;
+	border-spacing:10px;
+}
+.obavijesti_td
+{
+	background:#000;
+	opacity:0.8;
+	border:10px;
+	padding:5px;
+	width:200px;
+	height:20px;
+}
+.obavijesti_td input[type=text]
+{
+	background:none;
+	color:#FFF;
+	font-family:"Nedo font";
+	font-size:16px;
+}

@@ -1,0 +1,180 @@
+@charset "utf-8";
+/* CSS Document */
+*
+{
+	padding:0px;
+	margin:0px;
+	text-shadow:2px 2px 4px #000;
+}
+body, html
+{
+	height:100%;
+}
+body
+{
+	background:url(../slike/bg_main1.png) no-repeat;
+	background-size:cover;
+}
+#podaci
+{
+	float:left;
+	width:21%;
+	padding-left:2%;
+	padding-right:2%;
+	height:100%;
+	border-top-left-radius:8px;
+	border-bottom-left-radius:8px;
+	background:url(../slike/bg_main2.png) no-repeat;
+	background-size:cover;
+	background-position:center;
+	color:#FFF;
+	box-shadow:5px 0px 3px #000;
+}
+#sadrzaj
+{
+	float:right;
+	padding-left:5%;
+	padding-right:5%;
+	width:65%;
+	height:100%;
+	border-top-right-radius:8px;
+	border-bottom-right-radius:8px;
+	background:url(../slike/bg_main.png) no-repeat;
+	background-size:cover;
+	overflow-y:scroll;
+	color:#FFF;
+}
+#omotac
+{
+	margin:auto;
+	margin-top:50px;
+	clear:both;
+	width:80%;
+	height:70%;
+	border:#FFF;
+	border-style:solid;
+	border-radius:10px;
+	opacity:0.95;
+	font-family:"Nedo font";
+	box-shadow:10px 10px 10px #000;
+}
+ul li
+{
+	background:url(../slike/bg_list.png) no-repeat;
+	width:200px;
+	height:40px;
+	float:left;
+	padding-top:10px;
+	font-family:"Nedo font", Arial, Helvetica, sans-serif;
+	margin-left:5px;
+	margin-right:5px;
+}
+ul
+{
+	display:inline-block;
+	list-style:none;
+	margin-top:50px;
+	padding:0px;
+}
+ul a li, ul a:visited li 
+{
+	color:#FFF;
+	text-decoration:none;
+}
+ul a:hover li
+{
+	color:#DAF3E4;
+	text-decoration:none;
+	background:url(../slike/bg_list_h.png) no-repeat;
+	cursor:url(../slike/cursor.png), auto;
+}
+
+@font-face
+{
+    font-family: "Nedo font";
+    src: url("../fonts/segoeui.ttf");
+}
+
+.napravi_dugme
+{
+	height:32px;
+	width:150px;
+	background:url(../slike/napravi_dugme.png) no-repeat;
+	border:none;
+	font-family:"Nedo font",Arial, Helvetica, sans-serif;
+	font-size:16px;
+	color:#FFF;
+}
+
+.napravi_dugme:hover
+{
+	background:url(../slike/napravi_dugme_h.png) no-repeat;
+	cursor:url(../slike/cursor.png), auto;
+}
+.napravi_dugme:focus
+{
+	color:#FF0;
+}
+
+.napravi_polje_header
+{
+	height:35px;
+	width:200px;
+	color:#0CF;
+	background:url(../slike/napravi_polje_header.png) no-repeat;
+	font-family:"Nedo font",Arial, Helvetica, sans-serif;
+	font-size:16px;
+	text-align:center;
+	border:none;
+}
+.napravi_polje
+{
+	height:40px;
+	width:584px;
+	color:#FFF;
+	background:url(../slike/napravi_polje.png) no-repeat;
+	font-family:"Nedo font",Arial, Helvetica, sans-serif;
+	text-align:center;
+	font-size:18px;
+	border:none;
+}
+.napravi_polje:focus
+{
+	background:url(../slike/napravi_polje_h.png) no-repeat;
+}
+input:focus
+{
+	border:none;
+	box-shadow:none;
+	outline:none;
+}
+#prikaz_mojih_sezona
+{
+	height:100%;
+}
+.list_moje_sezone_ul
+{
+	max-height:300px; /*doraditi*/
+	overflow-y:scroll;
+	background:#000;
+	background-size:cover;
+	opacity:0.9;
+}
+.list_moje_sezone_ul li
+{
+	background:none;
+}
+.list_moje_sezone_ul li a
+{
+	color:#FFF;
+}
+.list_moje_sezone_ul li a:hover
+{
+	color:#06F;
+	cursor:url(../slike/cursor.png), auto;
+}
+.list_moje_sezone_ul li a, a:visited, a:hover, a:active
+{
+	text-decoration:none;
+	background:none;
+}

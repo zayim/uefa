@@ -1,0 +1,55 @@
+@charset "utf-8";
+/* CSS Document */
+*
+{
+	margin:0px;
+	padding:0px;
+	text-shadow:2px 2px 4px #000;
+}
+input, input:focus
+{
+	outline:none;
+	border:none;
+}
+.moje_sezone_dugme
+{
+	background:url(../slike/napravi_dugme.png);
+	width:150px;
+	height:32px;
+	border:none;
+	color:#FFF;
+	font-family:"Nedo font";
+	font-size:15px;
+	margin-top:20px;
+	margin-left:3px;
+	margin-right:3px;
+}
+.moje_sezone_dugme:hover
+{
+	background:url(../slike/napravi_dugme_h.png);
+	cursor:url(../slike/cursor.png), auto;
+}
+.moje_sezone_polje
+{
+	background:url(../slike/napravi_polje.png);
+	width:584px;
+	height:40px;
+	color:#FFF;
+	font-family:"Nedo font";
+	font-size:18px;
+	text-align:center;
+}
+.moje_sezone_polje:focus
+{
+	background:url(../slike/napravi_polje_h.png);
+}
+.moje_sezone_polje_header
+{
+	background:url(../slike/napravi_polje_header.png);
+	width:200px;
+	height:35px;
+	text-align:center;
+	font-family: "Nedo font";
+	font-size:16px;
+	color:#0CF;
+}

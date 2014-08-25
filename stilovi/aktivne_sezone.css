@@ -1,0 +1,103 @@
+@charset "utf-8";
+/* CSS Document */
+*
+{
+	margin:0px;
+	padding:0px;
+}
+.aktivne_sezone_dugme
+{
+	background:#000;
+	opacity:0.95;
+	color:#FFF;
+	font-family:"Nedo font";
+	font-size:16px;
+	padding-left:10px;
+	padding-right:10px;
+}
+
+.aktivne_sezone_dugme:hover
+{
+	color:#09F;
+	cursor:url(../slike/cursor.png), auto;
+}
+#domacin_meni
+{
+	width:270px;
+	height:42px;
+	background:url(../slike/res_domacin_username.png) no-repeat;
+}
+#gost_meni
+{
+	width:270px;
+	height:42px;
+	background:url(../slike/res_gost_username.png) no-repeat;
+}
+#domacin_username, #gost_username
+{
+	background:none;
+	border:none;
+	outline:none;
+	color:#FFF;
+	font-family:"Nedo font";
+	font-size:22px;
+	text-align:center;
+	padding-top:5px;
+	padding-bottom:10px;
+	line-height:22px;
+}
+#domacin_meni li, #gost_meni li
+{
+	display:none;
+}
+#domacin_meni:hover li, #gost_meni:hover li
+{
+	display:block;
+	width:200px;
+	height:18px;
+	background:#000;
+	opacity:0.8;
+	color:#FFF;
+	font-family:"Nedo font";
+	font-size:14px;
+	line-height:14px;
+	margin-left:20px;
+	padding-left:20px;
+	margin-right:20px;
+	padding-right:20px;
+}
+#domacin_meni:hover li:hover, #gost_meni:hover li:hover
+{
+	color:#09F;
+	cursor:url(../slike/cursor.png), auto;
+}
+table, table tr, table tr td
+{
+	border-collapse: collapse;
+  	border-spacing: 0;
+}
+table tr td
+{
+	vertical-align:middle;
+}
+#domacin_rezultat, #gost_rezultat
+{
+	background:url(../slike/res_domacin_rezultat.png) no-repeat;
+	width:31px;
+	height:42px;
+	font-family:"Nedo font";
+	font-size:22px;
+	font-weight:600;
+	text-shadow:none;
+	text-align:center;
+	color:#000;
+	margin-top:50px;
+}
+#gost_rezultat
+{
+	background:url(../slike/res_gost_rezultat.png) no-repeat !important;
+}
+#tabela_rezultati tr td,#tabela_moji_igraci tr td, #tabela_sve_utakmice tr td
+{
+	padding:5px;
+}

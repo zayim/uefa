@@ -1,0 +1,118 @@
+@charset "utf-8";
+/* CSS Document */
+@font-face
+{
+    font-family: "Nedo font";
+    src: url("../fonts/segoeui.ttf");
+}
+*
+{
+	padding:0px;
+	margin:0px;
+}
+html
+{
+	height:100%;
+}
+body
+{
+	background:url(../slike/bg_main.png) no-repeat;
+	background-size:cover;
+	height:100%;
+}
+#header
+{
+	background:url(../slike/bg_2.png);
+	width:730px;
+	height:50px;
+	margin:auto;
+	line-height:50px;
+	color:#FFF;
+	font-family:"Nedo font";
+	text-shadow:3px 3px 10px #000;
+	font-size:24px;
+	font-weight:bold;
+	letter-spacing:2px;
+}
+
+.dugme_prijavi_se
+{
+	background:url(../slike/napravi_dugme_h.png) no-repeat;
+	background-size:cover;
+	width:150px;
+	height:32px;
+	font-family:"Nedo font";
+	font-size:16px;
+	color:#FFF;
+	margin-top:30px;
+}
+.dugme_prijavi_se:hover, .dugme_prijavi_se:focus
+{
+	color:#FF0;
+	cursor:url(../slike/cursor.png), auto;
+}
+#sadrzaj
+{
+	margin:auto;
+	background:url(../slike/bg_1a.png) no-repeat;
+	background-size:contain;
+	opacity:0.9;
+	width:692px;
+	height:512px;
+	border-bottom-left-radius:20px;
+	border-bottom-right-radius:20px;
+	box-shadow:5px 5px 3px #000;
+}
+.polje_header
+{
+	background:url(../slike/napravi_polje_header.png);
+	width:200px;
+	height:35px;
+	color:#09F;
+	font-size:16px;
+	font-family:"Nedo font";
+	text-align:center;
+	margin-top:10px;
+}
+.polje
+{
+	background:url(../slike/bg_3.png) no-repeat;
+	background-size:contain;
+	width:308px;
+	height:36px;
+	color:#FFF;
+	text-shadow:3px 3px 10px #000;
+	font-family:"Nedo font";
+	font-size:16px;
+	text-align:center;
+}
+.dugme
+{
+	background:url(../slike/napravi_dugme.png) no-repeat;
+	background-size:cover;
+	width:150px;
+	height:32px;
+	color:#FFF;
+	font-family:"Nedo font";
+	font-size:16px;
+	text-align:center;
+	margin-left:5px;
+	margin-right:5px;
+}
+.dugme:hover, .dugme:focus
+{
+	color:#FF0;
+	cursor:url(../slike/cursor.png), auto;
+	
+}
+input, input:hover, input:focus, a, a:hover, a:focus
+{
+	border:none;
+	outline:none;
+}
+#upozorenje
+{
+	margin-top:10px;
+	width:300px;
+	height:30px;
+}

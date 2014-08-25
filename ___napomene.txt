@@ -1,0 +1,7 @@
+NAPOMENE:
+
+- doraditi max height kod pretrage mojih sezona
+- dodati arhivirane sezone
+- doraditi da obavijesti* i spiskovi(sezona_id,korisnik_id) budu UNIQUE
+- dodati poruku šta kad nema obavijesti
+- doraditi naslovni meni

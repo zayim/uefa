@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Registruj se</title>
+<script type="text/javascript" src="ajax_zahtjev.js"></script>
+<script type="text/javascript" src="registracija.js"></script>
+<link rel="stylesheet" type="text/css" href="stilovi/registracija.css" />
+</head>
+
+<body>
+
+<br /><br /><center><h1> Registruj se: </h1></center><br />
+<div id="sadrzaj">
+<form action="registracija.php" method="POST" enctype='multipart/form-data'>
+<center>
+<table>
+<tr><td>Ime: </td><td><input type="text" id="ime" name="ime" /></td></tr>
+<tr><td>Prezime: </td><td><input type="text" id="prezime" name="prezime" /></td></tr>
+<tr><td>Username:</td><td> <input type="text" id="username" name="username" onkeyup="provjeri_dostupnost()"/>  <label id="username_opis"></label></td></tr>
+<tr><td>Sifra:</td><td> <input type="password" id="password" name="password" /></td></tr>
+<tr><td>Slika profila: </td><td><input type="file" id="slika" name="slika"  /></td></tr>
+</table>
+<center>
+<center><input type="submit" value="Registruj se" id="dugme" onclick="provjeri_podatke()"/></center>
+</form> 
+</div>
+
+</body>
+</html>
