@@ -1,10 +1,12 @@
 <?php
 
-$veza=mysqli_connect("127.0.0.1","root");
+require_once("config.php");
+
+$veza=mysqli_connect(Config::$DATABASE_HOST, Config::$DATABASE_USER, Config::$DATABASE_PASSWORD);
 
 if (!$veza) { header("Location: greske.php?tip=0"); die(); }
 
-$imeBaze="uefa";
+$imeBaze=Config::$DATABASE_SCHEMA;
 $imaLiBaza=mysqli_select_db($veza, "$imeBaze");
 if (!$imaLiBaza)
 {
