@@ -10,10 +10,10 @@ $id_sezone=$_POST['id_sezone'];
 $pass=$_SESSION['password'];
 
 $upit="SELECT * FROM sezone WHERE id=$id_sezone";
-$rez=mysql_query($upit);
-if (mysql_num_rows($rez)!=1) die("Greska");
+$rez=mysqli_query($veza, $upit);
+if (mysqli_num_rows($rez)!=1) die("Greska");
 
-$red=mysql_fetch_assoc($rez);
+$red=mysqli_fetch_assoc($rez);
 if($red['status']==1)
 {
 	echo <<<_END

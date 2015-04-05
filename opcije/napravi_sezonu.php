@@ -14,18 +14,18 @@ $tip=$_POST['tip'];
 if ($tip=='end')
 {
 	$podaciOK=true;
-	if (isset($_POST['imeSezone'])) { $imeSezone=popraviString($_POST['imeSezone']); } else { $podaciOK=false; }
-	if (isset($_POST['brojIgraca'])) { $brojIgraca=popraviString($_POST['brojIgraca']); } else { $podaciOK=false; }
-	if (isset($_POST['brojKola'])) { $brojKola=popraviString($_POST['brojKola']); } else { $podaciOK=false; }
+	if (isset($_POST['imeSezone'])) { $imeSezone=popraviString($veza, $_POST['imeSezone']); } else { $podaciOK=false; }
+	if (isset($_POST['brojIgraca'])) { $brojIgraca=popraviString($veza, $_POST['brojIgraca']); } else { $podaciOK=false; }
+	if (isset($_POST['brojKola'])) { $brojKola=popraviString($veza, $_POST['brojKola']); } else { $podaciOK=false; }
 	if ($podaciOK)
 	{
 		$_upit="INSERT INTO sezone(ime,vlasnik_id,broj_kola,broj_igraca,status) VALUES('$imeSezone','$id',$brojKola,$brojIgraca,1)";
-		$_rez=mysql_query($_upit);
+		$_rez=mysqli_query($veza, $_upit);
 		
 		$_id_sezone=-1;
 		$ima_greska=false;
 		if (!$_rez) $ima_greska=true;
-		else $_id_sezone=mysql_insert_id();
+		else $_id_sezone=mysqli_insert_id($veza);
 		
 		if (!$ima_greska){
 		$_upit="CREATE TABLE korisnici_$_id_sezone(
@@ -34,7 +34,7 @@ if ($tip=='end')
 										PRIMARY KEY(rb),
 										FOREIGN KEY(korisnik_id) REFERENCES korisnici(id)
 		) ENGINE=InnoDB";
-		$_rez=mysql_query($_upit);
+		$_rez=mysqli_query($veza, $_upit);
 		if (!$_rez) $ima_greska=true;}
 		
 		if (!$ima_greska){
@@ -44,12 +44,12 @@ if ($tip=='end')
 										PRIMARY KEY(rb),
 										FOREIGN KEY(utakmica_id) REFERENCES utakmice(id)
 		) ENGINE=InnoDB";
-		$_rez=mysql_query($_upit);
+		$_rez=mysqli_query($veza, $_upit);
 		if (!$_rez) $ima_greska=true;}
 		
 		if (!$ima_greska)
 		{
-			mysql_query("INSERT INTO obavijesti(sezona_id,korisnik_id) VALUES($_id_sezone,$id)");
+			mysqli_query($veza, "INSERT INTO obavijesti(sezona_id,korisnik_id) VALUES($_id_sezone,$id)");
 		
 			echo<<<_END
 			<br><br>

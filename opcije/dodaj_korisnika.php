@@ -24,7 +24,7 @@ else if ($tip=='end')
 	$id=$_POST['id_korisnika'];
 	
 	$upit="INSERT INTO obavijesti(sezona_id,korisnik_id) VALUES ($id_sezone,$id)";
-	$rez=mysql_query($upit);
+	$rez=mysqli_query($veza, $upit);
 	if (!$rez) die("Korisnik je već u sezoni!");
 	echo<<<_END
 	

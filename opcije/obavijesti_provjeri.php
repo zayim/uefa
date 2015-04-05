@@ -7,9 +7,9 @@ if (!isset($_SESSION['username'])) { header("Location: index.php"); die(); }
 $id=$_SESSION['id'];
 
 $upit="SELECT * FROM obavijesti WHERE korisnik_id=$id";
-$rez=mysql_query($upit);
+$rez=mysqli_query($veza, $upit);
 
-if ($rez!=false) $broj_redova=mysql_num_rows($rez); else $broj_redova=0;
+if ($rez!=false) $broj_redova=mysqli_num_rows($rez); else $broj_redova=0;
 
 echo $broj_redova;
 

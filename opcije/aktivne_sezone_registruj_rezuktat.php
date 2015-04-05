@@ -9,7 +9,7 @@ $sezona_id=$_POST['sezona_id'];
 
 $upit="INSERT INTO utakmice(sezona_id,korisnik_domacin_id,korisnik_gost_id,rezultat_domacin,rezultat_gost) VALUES($sezona_id,$domacin_id,$gost_id,$domacin_rezultat,$gost_rezultat)";
 
-$rez = mysql_query($upit);
+$rez = mysqli_query($veza, $upit);
 
 if ($rez==false) die($upit);
 

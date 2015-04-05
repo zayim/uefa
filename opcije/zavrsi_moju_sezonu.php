@@ -9,11 +9,11 @@ if (!isset($_GET['id_korisnika'])) die("Greska!");
 
 $id_korisnika=$_GET['id_korisnika'];
 $id_sezone=$_GET['id_sezone'];
-$rez=mysql_query("SELECT vlasnik_id FROM sezone WHERE id=$id_sezone");
-$red=mysql_fetch_assoc($rez);
+$rez=mysqli_query($veza, "SELECT vlasnik_id FROM sezone WHERE id=$id_sezone");
+$red=mysqli_fetch_assoc($rez);
 if ($red['vlasnik_id']!=$id_korisnika) die("Greska");
 
-mysql_query("UPDATE sezone SET status=3 WHERE id=$id_sezone");
+mysqli_query($veza, "UPDATE sezone SET status=3 WHERE id=$id_sezone");
 header("Location: ../profil.php"); die();
 
 ?>

@@ -19,14 +19,14 @@ class igrac
 }
 
 $upit = "SELECT DISTINCT vlasnik_id, ime, prezime FROM spiskovi JOIN korisnici ON spiskovi.vlasnik_id=korisnici.id  WHERE sezona_id=$id_sezone";
-$rez=mysql_query($upit);
-$broj_redova=mysql_num_rows($rez);
+$rez=mysqli_query($veza, $upit);
+$broj_redova=mysqli_num_rows($rez);
 
 $igraci = array();
 
 for ($i=0; $i<$broj_redova; $i++)
 {
-	$red = mysql_fetch_assoc($rez);
+	$red = mysqli_fetch_assoc($rez);
 	
 	$igrac = new igrac;
 	$igrac->ime = $red['ime'];
@@ -34,12 +34,12 @@ for ($i=0; $i<$broj_redova; $i++)
 	
 	////// OBRADA DOMACIH UTAKMICA
 	$upit2 = "SELECT * FROM utakmice WHERE sezona_id=$id_sezone AND korisnik_domacin_id=".$red['vlasnik_id'];
-	$rez2 = mysql_query($upit2);
-	$broj_redova2 = mysql_num_rows($rez2);
+	$rez2 = mysqli_query($veza, $upit2);
+	$broj_redova2 = mysqli_num_rows($rez2);
 	
 	for ($j=0; $j<$broj_redova2; $j++)
 	{
-		$red2 = mysql_fetch_assoc($rez2);
+		$red2 = mysqli_fetch_assoc($rez2);
 		
 		$igrac->broj_odigranih++;
 		if ($red2['rezultat_domacin'] > $red2['rezultat_gost'] ) $igrac->broj_pobjeda++;
@@ -50,15 +50,15 @@ for ($i=0; $i<$broj_redova; $i++)
 	}
 	/////// KRAJ OBRADE DOMACIH UTAKMICA
 	$upit2 = "SELECT * FROM utakmice WHERE sezona_id=$id_sezone AND korisnik_gost_id=".$red['vlasnik_id'];
-	$rez2 = mysql_query($upit2);
-	$broj_redova2 = mysql_num_rows($rez2);
+	$rez2 = mysqli_query($veza, $upit2);
+	$broj_redova2 = mysqli_num_rows($rez2);
 	
 	for ($j=0; $j<$broj_redova2; $j++)
 	{
-		$red2 = mysql_fetch_assoc($rez2);
+		$red2 = mysqli_fetch_assoc($rez2);
 		
 		$igrac->broj_odigranih++;
-		if ($red2['rezultat_domacin'] > $red2['rezultat_gost'] ) $igrac->broj_porazaa++;
+		if ($red2['rezultat_domacin'] > $red2['rezultat_gost'] ) $igrac->broj_poraza++;
 		else if ($red2['rezultat_domacin'] == $red2['rezultat_gost'] ) $igrac->broj_nerijesenih++;
 		else $igrac->broj_pobjeda++;
 		$igrac->postignuti_golovi += $red2['rezultat_gost'];

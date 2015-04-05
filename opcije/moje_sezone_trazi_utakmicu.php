@@ -15,23 +15,23 @@ $username2=$_POST['username2'];
 $tip=$_POST['tip'];
 
 $upit="SELECT * FROM utakmice WHERE sezona_id=$id_sezone";
-$rez=mysql_query($upit);
-$broj_redova=mysql_num_rows($rez);
+$rez=mysqli_query($veza, $upit);
+$broj_redova=mysqli_num_rows($rez);
 
 echo "<ul class='list_moje_sezone_ul'>";
 for ($i=0; $i<$broj_redova; $i++)
 {
-	$red=mysql_fetch_assoc($rez);
+	$red=mysqli_fetch_assoc($rez);
 	$id1=$red['korisnik_domacin_id'];
 	$id2=$red['korisnik_gost_id'];
 	$id_utakmice=$red['id'];
-	
+
 	$upit2="SELECT * FROM korisnici WHERE id=$id1";
-	$rez2=mysql_query($upit2);
+	$rez2=mysqli_query($veza, $upit2);
 	$upit3="SELECT * FROM korisnici WHERE id=$id2";
-	$rez3=mysql_query($upit3);
+	$rez3=mysqli_query($veza, $upit3);
 	
-	$red2=mysql_fetch_assoc($rez2); $red3=mysql_fetch_assoc($rez3);
+	$red2=mysqli_fetch_assoc($rez2); $red3=mysqli_fetch_assoc($rez3);
 	$un1=$red2['username']; $un2=$red3['username'];
 	$golovi1=$red['rezultat_domacin']; $golovi2=$red['rezultat_gost'];
 	

@@ -1,22 +1,22 @@
 <?php
 
-$veza=mysql_connect("127.0.0.1","root");
+$veza=mysqli_connect("127.0.0.1","root");
 
 if (!$veza) { header("Location: greske.php?tip=0"); die(); }
 
 $imeBaze="uefa";
-$imaLiBaza=mysql_select_db("$imeBaze",$veza);
+$imaLiBaza=mysqli_select_db($veza, "$imeBaze");
 if (!$imaLiBaza)
 {
-	mysql_query("CREATE DATABASE $imeBaze");
-	$imaLiBaza=mysql_select_db("$imeBaze",$veza);
+	mysqli_query($veza, "CREATE DATABASE $imeBaze");
+	$imaLiBaza=mysqli_select_db($veza, "$imeBaze");
 }
 /////// KORISNICI
-$tabela=mysql_query("DESCRIBE korisnici");
+$tabela=mysqli_query($veza, "DESCRIBE korisnici");
 
 if (!$tabela)
 {
-	$rez=mysql_query("CREATE TABLE korisnici(
+	$rez=mysqli_query($veza, "CREATE TABLE korisnici(
 								id INT AUTO_INCREMENT,
 								ime varchar(100) NOT NULL,
 								prezime varchar(100) NOT NULL,
@@ -28,11 +28,11 @@ if (!$tabela)
 }
 
 /////// SEZONE
-$tabela=mysql_query("DESCRIBE sezone");
+$tabela=mysqli_query($veza, "DESCRIBE sezone");
 
 if (!$tabela)
 {
-	$rez=mysql_query("CREATE TABLE sezone(
+	$rez=mysqli_query($veza, "CREATE TABLE sezone(
 								id INT AUTO_INCREMENT,
 								ime varchar(100) NOT NULL,
 								vlasnik_id INT NOT NULL,
@@ -46,11 +46,11 @@ if (!$tabela)
 }
 
 /////// SPISKOVI
-$tabela=mysql_query("DESCRIBE spiskovi");
+$tabela=mysqli_query($veza, "DESCRIBE spiskovi");
 
 if (!$tabela)
 {
-	$rez=mysql_query("CREATE TABLE spiskovi(
+	$rez=mysqli_query($veza, "CREATE TABLE spiskovi(
 								id INT AUTO_INCREMENT,
 								vlasnik_id INT NOT NULL,
 								sezona_id INT NOT NULL,
@@ -63,11 +63,11 @@ if (!$tabela)
 }
 
 /////// UTAKMICE
-$tabela=mysql_query("DESCRIBE utakmice");
+$tabela=mysqli_query($veza, "DESCRIBE utakmice");
 
 if (!$tabela)
 {
-	$rez=mysql_query("CREATE TABLE utakmice(
+	$rez=mysqli_query($veza, "CREATE TABLE utakmice(
 								id INT AUTO_INCREMENT,
 								sezona_id INT NOT NULL,
 								korisnik_domacin_id INT NOT NULL,
@@ -83,11 +83,11 @@ if (!$tabela)
 }
 
 /////// OBAVIJESTI
-$tabela=mysql_query("DESCRIBE obavijesti");
+$tabela=mysqli_query($veza, "DESCRIBE obavijesti");
 
 if (!$tabela)
 {
-	$rez=mysql_query("CREATE TABLE obavijesti(
+	$rez=mysqli_query($veza, "CREATE TABLE obavijesti(
 								id INT AUTO_INCREMENT,
 								sezona_id INT NOT NULL,
 								korisnik_id INT NOT NULL,
@@ -99,9 +99,9 @@ if (!$tabela)
 	if (!$rez) { header("Location: greske.php?tip=1&tabela=obavijesti"); die(); }
 }
 
-function popraviString($var)
+function popraviString($veza, $var)
 {
-	$var = mysql_real_escape_string($var);
+	$var = mysqli_real_escape_string($veza, $var);
 	if (get_magic_quotes_gpc()) $var = stripslashes($var);
 	$var = htmlentities($var);
 	$var = strip_tags($var);

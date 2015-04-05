@@ -13,14 +13,14 @@ $upit="SELECT DISTINCT sezone.id, sezone.ime, sezone.status FROM sezone JOIN spi
 				sezone.ime LIKE '%$dio_imena%' ORDER BY sezone.status, sezone.id DESC";
 //die($upit);
 
-$rez=mysql_query($upit);
+$rez=mysqli_query($veza, $upit);
 
-$broj_redova=mysql_num_rows($rez);
+$broj_redova=mysqli_num_rows($rez);
 
 echo "<ul class='list_moje_sezone_ul'>";
 for ($i=0; $i<$broj_redova; $i++)
 {
-	$red=mysql_fetch_assoc($rez);
+	$red=mysqli_fetch_assoc($rez);
 	$id_sezone=$red['id']; $ime_sezone=$red['ime'];
 	echo <<< _END
 	<li><a href="javascript:prikazi_aktivnu_sezonu($id_sezone)">$ime_sezone</a></li><br/>

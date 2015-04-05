@@ -11,16 +11,16 @@ $id=$_SESSION['id'];
 $id_obavijesti=$_POST['id_obavijesti'];
 
 $upit="SELECT * FROM obavijesti WHERE id=$id_obavijesti";
-$rez=mysql_query($upit);
-if ($rez==false || mysql_num_rows($rez)>1) die("Greska");
-$red=mysql_fetch_assoc($rez);
+$rez=mysqli_query($veza, $upit);
+if ($rez==false || mysqli_num_rows($rez)>1) die("Greska");
+$red=mysqli_fetch_assoc($rez);
 
 $id_sezone=$red['sezona_id'];
 
 $upit2="SELECT * FROM sezone WHERE id=$id_sezone";
-$rez2=mysql_query($upit2);
-if ($rez2==false || mysql_num_rows($rez2)>1) die("Greska");
-$red2=mysql_fetch_assoc($rez2);
+$rez2=mysqli_query($veza, $upit2);
+if ($rez2==false || mysqli_num_rows($rez2)>1) die("Greska");
+$red2=mysqli_fetch_assoc($rez2);
 
 $broj_igraca=$red2['broj_igraca'];
 

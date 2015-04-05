@@ -8,7 +8,7 @@ if (!isset($_POST['id_obavijesti'])) die("Greska!");
 $id_obavijesti=$_POST['id_obavijesti'];
 
 $upit="DELETE FROM obavijesti WHERE id=$id_obavijesti";
-$rez=mysql_query($upit);
+$rez=mysqli_query($veza, $upit);
 
 if ($rez==false) die("Greska");
 echo "success";

@@ -26,41 +26,41 @@ else if ($tip=='end')
 	$id=$_POST['id_korisnika'];
 	
 	$upit="DELETE FROM korisnici_$id_sezone WHERE korisnik_id=$id";
-	$rez=mysql_query($upit);
+	$rez=mysqli_query($veza, $upit);
 	if (!$rez) die("Greska");
 	
 	$upit="SELECT * FROM utakmice WHERE (korisnik_domacin_id=$id OR korisnik_gost_id=$id) AND sezona_id=$id_sezone";
-	$rez=mysql_query($upit);
+	$rez=mysqli_query($veza, $upit);
 	if (!$rez) die("Greska");
 	
-	$broj_redova=mysql_num_rows($rez);
+	$broj_redova=mysqli_num_rows($rez);
 	for ($i=0; $i<$broj_redova; $i++)
 	{
-		$red=mysql_fetch_assoc($rez);
+		$red=mysqli_fetch_assoc($rez);
 		$id_utakmice=$red['id'];
 		
-		$rez2=mysql_query("DELETE FROM utakmice_$id_sezone WHERE id=$id_utakmice");
+		$rez2=mysqli_query($veza, "DELETE FROM utakmice_$id_sezone WHERE id=$id_utakmice");
 		if (!$rez2) die("Greska!");
 	}
 	
 	$upit="DELETE FROM utakmice WHERE (korisnik_domacin_id=$id OR korisnik_gost_id=$id) AND sezona_id=$id_sezone";
-	$rez=mysql_query($upit);
+	$rez=mysqli_query($veza, $upit);
 	if (!$rez) die("Greska");
 	
 	
 	$upit="SELECT * FROM spiskovi WHERE korisnik_id=$id AND sezona_id=$id_sezone";
-	$rez=mysql_query($upit);
-	if ($rez && mysql_num_rows($rez)>1) die("Greska5");
-	elseif ($rez && mysql_num_rows($rez)==1)
+	$rez=mysqli_query($veza, $upit);
+	if ($rez && mysqli_num_rows($rez)>1) die("Greska5");
+	elseif ($rez && mysqli_num_rows($rez)==1)
 	{
-		$red=mysql_fetch_assoc($rez);
+		$red=mysqli_fetch_assoc($rez);
 		$id_spiska=$red['id'];
 	
-		mysql_query("DROP TABLE spisak_$id_spiska");
+		mysqli_query($veza, "DROP TABLE spisak_$id_spiska");
 		if (!$rez) die("Greska2");
 	}
 	
-	$rez=mysql_query("DELETE FROM spiskovi WHERE korisnik_id=$id AND sezona_id=$id_sezone");
+	$rez=mysqli_query($veza, "DELETE FROM spiskovi WHERE korisnik_id=$id AND sezona_id=$id_sezone");
 	
 	echo<<<_END
 	

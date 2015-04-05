@@ -16,9 +16,9 @@ echo "<td>";
 //////// IZBOR DOMAĆINA
 
 $upit="SELECT DISTINCT korisnici.id, korisnici.username FROM korisnici JOIN korisnici_$id_sezone ON korisnici.id=korisnici_$id_sezone.korisnik_id ORDER BY korisnici.username";
-$rez=mysql_query($upit);
+$rez=mysqli_query($veza, $upit);
 if (!$rez) die ("Nema nikog u sezoni!");
-$broj_redova=mysql_num_rows($rez);
+$broj_redova=mysqli_num_rows($rez);
 
 echo<<<_END
 <ul id="domacin_meni">
@@ -27,7 +27,7 @@ _END;
 
 for ($i=0; $i<$broj_redova; $i++)
 {
-	$red=mysql_fetch_assoc($rez);
+	$red=mysqli_fetch_assoc($rez);
 	$id_korisnika=$red['id'];
 	$username_korisnika=$red['username'];
 	
@@ -63,9 +63,9 @@ echo "<td align='right'>";
 //////// IZBOR GOSTA
 
 $upit="SELECT DISTINCT korisnici.id, korisnici.username FROM korisnici JOIN korisnici_$id_sezone ON korisnici.id=korisnici_$id_sezone.korisnik_id ORDER BY korisnici.username";
-$rez=mysql_query($upit);
+$rez=mysqli_query($veza, $upit);
 if (!$rez) die ("Nema nikog u sezoni!");
-$broj_redova=mysql_num_rows($rez);
+$broj_redova=mysqli_num_rows($rez);
 
 echo<<<_END
 <ul id="gost_meni">
@@ -74,7 +74,7 @@ _END;
 
 for ($i=0; $i<$broj_redova; $i++)
 {
-	$red=mysql_fetch_assoc($rez);
+	$red=mysqli_fetch_assoc($rez);
 	$id_korisnika=$red['id'];
 	$username_korisnika=$red['username'];
 	
