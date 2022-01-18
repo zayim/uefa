@@ -1,0 +1,7 @@
+version: '3.8'
+services:
+  uefa:
+    container_name: uefa
+    build:
+      context: .
+    network_mode: host
